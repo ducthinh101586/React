@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { path } from '../App'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 
 export default function Header() {
+  const history = useHistory()
+
+  const location = useLocation()
+
+  // useEffect(() => {
+  //   console.log(location)
+  // }, [location])
   return (
     <div>
       <ul>
@@ -15,6 +22,10 @@ export default function Header() {
         <li>
           <NavLink to={path.student}>Student</NavLink>
         </li>
+        <li>
+          <NavLink to={path.profile}>Profile</NavLink>
+        </li>
+        <button onClick={() => history.push(path.profile)}>chuyển sang profile</button>
       </ul>
     </div>
   )

@@ -1,12 +1,17 @@
 import React, { useState, Fragment } from 'react'
 import Student from '../components/Student'
 import Input from '../components/Input'
+import { Redirect, useLocation } from 'react-router-dom'
+import { path } from '../App'
+import useQuery from '../hooks/useQuery'
 
-export default function StudentManagement() {
+export default function StudentManagement({ isLogged }) {
   const [name, setName] = useState('')
   const [age, setAge] = useState('')
   const [students, setStudents] = useState([])
   const [currenntStudent, setCurrentStudent] = useState(null)
+  const query = useQuery()
+  console.log(query)
 
   const handleStartUpdate = id => {
     const student = students.find(student => student.id === id)
@@ -59,6 +64,10 @@ export default function StudentManagement() {
       setName('')
       setAge('')
     }
+  }
+  //learn Redirect: check điều kiện, dùng cho check auth
+  if (!isLogged) {
+    return <Redirect to={path.register} />
   }
 
   return (
