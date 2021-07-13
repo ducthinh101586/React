@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react'
 import Student from '../components/Student'
 import Input from '../components/Input'
-import { Redirect, useLocation } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { path } from '../App'
 import useQuery from '../hooks/useQuery'
 

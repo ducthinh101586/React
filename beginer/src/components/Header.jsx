@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { path } from '../App'
-import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 
 export default function Header() {
   const history = useHistory()
 
-  const location = useLocation()
-
-  // useEffect(() => {
-  //   console.log(location)
-  // }, [location])
   return (
     <div>
       <ul>
